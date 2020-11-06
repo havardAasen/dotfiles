@@ -13,6 +13,11 @@ So, to recap, the install script will:
 1. Back up any existing dotfiles in your home directory to `~/dotfiles_old/`
 2. Create symlinks to the dotfiles in `~/dotfiles/` in your home directory
 
+## Usage
+Since the dotfiles is symlinked from `~/dotfiles/` directory, the files can
+be edited in either folder. The `dotfiles_old` is only valid once, on a
+new istall. The `makesymlink.sh` should also only be used that one time.
+
 ## Installation
 
 ``` bash
