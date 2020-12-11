@@ -51,3 +51,13 @@ let g:netrw_winsize = 25
 " swap and backup files
 set backupdir=~/.vim/tmp/
 set directory=~/.vim/tmp/
+
+" search highlighting
+set hlsearch
+" Press Space to turn off highlighting and clear any message already displayed.
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" Create group to match bad whitespace
+:highlight ExtraWhitespace ctermbg=red guibg=red
+" Show trailing whitespace:
+:match ExtraWhitespace /\s\+$/
