@@ -16,7 +16,9 @@ call vundle#end()
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_ViewRule_pdf = 'atril'
 
-" Autocomplete
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt='popup'
 let g:ycm_autoclose_preview_window_after_completion=1
 
 " Color
