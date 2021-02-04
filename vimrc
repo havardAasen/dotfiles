@@ -43,6 +43,10 @@ set number relativenumber
 " vim-airline (statusbar)
 set ttimeoutlen=10
 set noshowmode
+" Highlight columns
+highlight colorcolumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v.', '\+')
+set colorcolumn=100
 
 " netrw
 let g:netrw_banner = 0
