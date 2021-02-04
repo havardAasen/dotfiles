@@ -24,6 +24,20 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt='popup'
 let g:ycm_autoclose_preview_window_after_completion=1
 
+" Spelling
+" Default locale is en_us
+" Toggle spellchecking
+function! ToggleSpellCheck()
+  set spell!
+  if &spell
+    echo "Spellcheck ON"
+  else
+    echo "Spellcheck OFF"
+  endif
+endfunction
+
+nnoremap <silent> <leader>S :call ToggleSpellCheck()<CR>
+
 " Color
 syntax enable
 " Needed for tmux
