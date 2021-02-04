@@ -1,3 +1,6 @@
+" map leader to comma
+let mapleader = ","
+
 " Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
