@@ -75,8 +75,11 @@ let g:netrw_winsize = 25
 set backupdir=~/.vim/tmp/
 set directory=~/.vim/tmp/
 
-" search highlighting
+" Search
 set hlsearch
+set ignorecase
+set smartcase
+set incsearch
 " Press Space to turn off highlighting and clear any message already displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
