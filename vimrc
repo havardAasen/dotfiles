@@ -1,6 +1,10 @@
 " map leader to comma
 let mapleader = ","
 
+" Switch buffers using ctrl+left or ctrl+right
+map <C-left> <ESC>:bp<CR>
+map <C-right> <ESC>:bn<CR>
+
 " Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
