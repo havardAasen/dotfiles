@@ -75,10 +75,6 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_winsize = 25
 
-" swap and backup files
-set backupdir=~/.vim/tmp/
-set directory=~/.vim/tmp/
-
 " Search
 set hlsearch
 set ignorecase
@@ -91,3 +87,9 @@ set incsearch
 :highlight ExtraWhitespace ctermbg=red guibg=red
 " Show trailing whitespace:
 :match ExtraWhitespace /\s\+$/
+
+" turn swap and viminfo files off
+set nobackup
+set writebackup
+set noswapfile
+set viminfofile=NONE
