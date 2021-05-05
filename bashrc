@@ -123,21 +123,6 @@ export DEBEMAIL DEBFULLNAME
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 complete -F _quilt_completion -o filenames dquilt
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/haava/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/haava/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/haava/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/haava/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 # Only load liquidprompt in interactive shells, not from a script or from scp
 echo $- | grep -q i 2>/dev/null && . /usr/share/liquidprompt/liquidprompt
 
