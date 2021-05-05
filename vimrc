@@ -88,6 +88,9 @@ set incsearch
 " Show trailing whitespace:
 :match ExtraWhitespace /\s\+$/
 
+" Automatically save before commands like :next and :make
+set autowrite
+
 " turn swap and viminfo files off
 set nobackup
 set writebackup
