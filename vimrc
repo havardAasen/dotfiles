@@ -83,6 +83,10 @@ set incsearch
 " Press Space to turn off highlighting and clear any message already displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
+" File find
+set path+=**
+set wildmenu
+
 " Create group to match bad whitespace
 :highlight ExtraWhitespace ctermbg=red guibg=red
 " Show trailing whitespace:
