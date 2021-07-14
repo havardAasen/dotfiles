@@ -6,8 +6,8 @@
 
 ########## Variables
 
-readonly dir="${HOME}/dotfiles" # dotfiles directory.
-readonly olddir="${HOME}/dotfiles_old" # old dotfiles backup directory.
+readonly SOURCE_DIR="$(dirname "$(realpath "$0")")" # Absolute path to script.
+readonly olddir="${SOURCE_DIR}/dotfiles_old" # old dotfiles backup directory.
 declare -ar files=("bashrc"
                    "vimrc"
                    "lintianrc"
@@ -16,14 +16,9 @@ declare -ar files=("bashrc"
 
 ##########
 
-# create dotfiles_old in homedir
+# Create directory dotfiles_old.
 echo "Creating ${olddir} for backup of any existing dotfiles in ${HOME}"
 mkdir -p "${olddir}"
-echo "...done"
-
-# change to the dotfiles directory
-echo "Changing to the ${dir} directory"
-cd "${dir}" || exit
 echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
@@ -33,6 +28,6 @@ for file in "${files[@]}"; do
         mv "${HOME}/.${file}" "${olddir}"
     fi
     echo "Creating symlink to ${file} in home directory."
-    ln -s "${dir}/${file}" "${HOME}/.${file}"
+    ln -s "${SOURCE_DIR}/${file}" "${HOME}/.${file}"
 done
 
