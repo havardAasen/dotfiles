@@ -22,8 +22,8 @@ mkdir -p "${olddir}"
 echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+echo "Move existing dotfiles from ${HOME} to ${olddir}"
 for file in "${files[@]}"; do
-    echo "Moving any existing dotfiles from ${HOME} to ${olddir}"
     if [[ -f "${HOME}/.${file}" ]]; then
         mv "${HOME}/.${file}" "${olddir}"
     fi
