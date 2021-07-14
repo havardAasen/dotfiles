@@ -9,24 +9,24 @@
 # long as the files wasn't symlinked in the first place.
 
 readonly SOURCE_DIR="$(dirname "$(realpath "$0")")" # Absolute path to script.
-readonly olddir="${SOURCE_DIR}/dotfiles_old" # Old dotfiles backup directory.
-declare -ar files=("bashrc"
+readonly BACKUP_DIR="${SOURCE_DIR}/dotfiles_old" # dotfiles backup directory.
+declare -ar FILES=("bashrc"
                    "vimrc"
                    "lintianrc"
                    "dput.cf"
                    "gbp.conf") # Array of files to symlink in homedir.
 
 # Create directory dotfiles_old.
-echo "Creating ${olddir} for backup of any existing dotfiles in ${HOME}"
-mkdir -p "${olddir}"
+echo "Creating ${BACKUP_DIR} for backup of any existing dotfiles in ${HOME}"
+mkdir -p "${BACKUP_DIR}"
 echo "...done"
 
 # Move any existing dotfiles in homedir to dotfiles_old directory,
 # then create symlinks.
-echo "Move existing dotfiles from ${HOME} to ${olddir}"
-for file in "${files[@]}"; do
+echo "Move existing dotfiles from ${HOME} to ${BACKUP_DIR}"
+for file in "${FILES[@]}"; do
     if [[ -f "${HOME}/.${file}" ]]; then
-        mv "${HOME}/.${file}" "${olddir}"
+        mv "${HOME}/.${file}" "${BACKUP_DIR}"
     fi
     echo "Creating symlink to ${file} in home directory."
     ln -sf "${SOURCE_DIR}/${file}" "${HOME}/.${file}"
