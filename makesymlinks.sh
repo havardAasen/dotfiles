@@ -29,5 +29,5 @@ for file in "${files[@]}"; do
         mv "${HOME}/.${file}" "${olddir}"
     fi
     echo "Creating symlink to ${file} in home directory."
-    ln -s "${SOURCE_DIR}/${file}" "${HOME}/.${file}"
+    ln -sf "${SOURCE_DIR}/${file}" "${HOME}/.${file}"
 done
