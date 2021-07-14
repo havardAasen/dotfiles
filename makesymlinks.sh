@@ -6,9 +6,13 @@
 
 ########## Variables
 
-dir="${HOME}/dotfiles"            # dotfiles directory
-olddir="${HOME}/dotfiles_old"     # old dotfiles backup directory
-files="bashrc vimrc lintianrc dput.cf gbp.conf"    # list of files/folders to symlink in homedir
+readonly dir="${HOME}/dotfiles" # dotfiles directory.
+readonly olddir="${HOME}/dotfiles_old" # old dotfiles backup directory.
+declare -ar files=("bashrc"
+                   "vimrc"
+                   "lintianrc"
+                   "dput.cf"
+                   "gbp.conf") # Array of files to symlink in homedir.
 
 ##########
 
@@ -23,7 +27,7 @@ cd "${dir}" || exit
 echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for file in ${files}; do
+for file in "${files[@]}"; do
     echo "Moving any existing dotfiles from ${HOME} to ${olddir}"
     if [[ -f "${HOME}/.${file}" ]]; then
         mv "${HOME}/.${file}" "${olddir}"
