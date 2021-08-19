@@ -11,7 +11,8 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Latex-Suite-aka-Vim-Latex'
+"Plugin 'Latex-Suite-aka-Vim-Latex'
+Plugin 'lervag/vimtex'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
 
@@ -20,8 +21,22 @@ Plugin 'tpope/vim-fugitive'
 call vundle#end()
 
 " LaTeX
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_ViewRule_pdf = 'atril'
+"let g:Tex_DefaultTargetFormat = 'pdf'
+"let g:Tex_ViewRule_pdf = 'atril'
+
+"let g:vimtex_view_method='atril'
+let g:vimtex_quickfix_mode=0
+let g:tex_flavor= 'latex'
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdf',
+    \   '-shell-escape',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
 
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
