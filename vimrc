@@ -87,6 +87,9 @@ set noshowmode
 "call matchadd('ColorColumn', '\%81v.', '\+')
 "set colorcolumn=100
 
+" Automatically resize panes
+autocmd VimResized * execute "normal! \<c-w>="
+
 " netrw
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
