@@ -1,32 +1,33 @@
 #!/bin/bash
-############################
-# makesymlinks.sh
-# This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
-############################
+#
+# Create symlinks from the home directory to all dotfiles
+# in the same directory as this script resides.
+# The repository can be saved in whichever path the user wants.
+#
+# 'mv' does not follow symlinks. That means that if the script is run
+# multiple times, the files will only get copied the first time, as
+# long as the files wasn't symlinked in the first place.
 
-########## Variables
+readonly SOURCE_DIR="$(dirname "$(realpath "$0")")" # Absolute path to script.
+readonly BACKUP_DIR="${SOURCE_DIR}/dotfiles_old" # dotfiles backup directory.
+declare -ar FILES=("bashrc"
+                   "vimrc"
+                   "lintianrc"
+                   "dput.cf"
+                   "gbp.conf") # Array of files to symlink in homedir.
 
-dir=~/dotfiles                    # dotfiles directory
-olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc lintianrc dput.cf gbp.conf"    # list of files/folders to symlink in homedir
-
-##########
-
-# create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
+# Create directory dotfiles_old.
+echo "Creating ${BACKUP_DIR} for backup of any existing dotfiles in ${HOME}"
+mkdir -p "${BACKUP_DIR}"
 echo "...done"
 
-# change to the dotfiles directory
-echo "Changing to the $dir directory"
-cd $dir
-echo "...done"
-
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file $olddir
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+# Move any existing dotfiles in homedir to dotfiles_old directory,
+# then create symlinks.
+echo "Move existing dotfiles from ${HOME} to ${BACKUP_DIR}"
+for file in "${FILES[@]}"; do
+    if [[ -f "${HOME}/.${file}" ]]; then
+        mv "${HOME}/.${file}" "${BACKUP_DIR}"
+    fi
+    echo "Creating symlink to ${file} in home directory."
+    ln -sf "${SOURCE_DIR}/${file}" "${HOME}/.${file}"
 done
-
