@@ -93,6 +93,9 @@ autocmd VimResized * execute "normal! \<c-w>="
 " Set document title to window title
 set title
 
+" Enable mouse usage (all modes)
+set mouse=a
+
 " netrw
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
