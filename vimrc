@@ -118,3 +118,9 @@ set nobackup
 set writebackup
 set noswapfile
 set viminfofile=NONE
+
+" Enable folding
+set foldmethod=syntax
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
