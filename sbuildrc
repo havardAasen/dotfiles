@@ -1,0 +1,66 @@
+##############################################################################
+# PACKAGE BUILD RELATED (additionally produce _source.changes)
+##############################################################################
+# -d
+#$distribution = 'unstable';
+# -A
+$build_arch_all = 1;
+# -s
+$build_source = 1;
+# --source-only-changes (applicable for dput. irrelevant for dgit push-source).
+$source_only_changes = 1;
+# -v
+$verbose = 1;
+# parallel build
+$ENV{'DEB_BUILD_OPTIONS'} = 'parallel=4';
+# --no-clean-source (clean happens outside of chroot, lets drop it).
+$clean_source = 0;
+##############################################################################
+# POST-BUILD RELATED (turn off functionality by setting variables to 0)
+##############################################################################
+$run_lintian = 0;
+$lintian_opts = ['-i', '-I'];
+
+$run_piuparts = 0;
+$piuparts_opts = ['--allow-database', '--warn-on-leftovers-after-purge', '--schroot', '%r-%a-sbuild', '--no-eatmydata' ];
+
+$run_autopkgtest = 0;
+$autopkgtest_root_args = '';
+$autopkgtest_opts = [ '--', 'schroot', '%r-%a-sbuild' ];
+##############################################################################
+# CHECK FOR CLEAN SOURCE
+##############################################################################
+$external_commands = {
+    "starting-build-commands" => [
+        'bash -c \'find %SBUILD_PKGBUILD_DIR -print0 |
+                  sort -z |
+                  while read -d $\'\\\'\'\0\'\\\'\' file; do
+                      echo -n "$(stat -c "%n %F %%s" "${file}") "
+                      if [ -f "${file}" ]; then
+                          sha256sum "${file}" |
+                              cut -d " " -f 1
+                      else
+                              echo
+                      fi
+                  done > /tmp/file-list.pre-build\''
+    ],
+    "chroot-cleanup-commands" => [
+        'cd %SBUILD_PKGBUILD_DIR && ./debian/rules clean',
+        'bash -c \'find %SBUILD_PKGBUILD_DIR -print0 |
+                  sort -z |
+                  while read -d $\'\\\'\'\0\'\\\'\' file; do
+                      echo -n "$(stat -c "%n %F %%s" "${file}") "
+                      if [ -f "${file}" ]; then
+                          sha256sum "${file}" |
+                              cut -d " " -f 1
+                      else
+                              echo
+                      fi
+                  done > /tmp/file-list.post-build\'',
+        'diff /tmp/file-list.pre-build /tmp/file-list.post-build'
+    ]
+};
+##############################################################################
+# PERL MAGIC
+##############################################################################
+1;

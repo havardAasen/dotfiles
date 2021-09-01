@@ -14,7 +14,8 @@ declare -ar FILES=("bashrc"
                    "vimrc"
                    "lintianrc"
                    "dput.cf"
-                   "gbp.conf") # Array of files to symlink in homedir.
+                   "gbp.conf"
+                   "sbuildrc") # Array of files to symlink in homedir.
 
 # Create directory dotfiles_old.
 echo "Creating ${BACKUP_DIR} for backup of any existing dotfiles in ${HOME}"
