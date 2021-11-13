@@ -5,4 +5,4 @@ pedantic=yes
 show-overrides=yes
 color=auto
 verbose=yes
-
+hyperlinks=on
