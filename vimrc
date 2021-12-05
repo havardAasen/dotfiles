@@ -79,6 +79,8 @@ filetype plugin on
 set showcmd
 set wildmenu
 set number relativenumber
+set scrolloff=8
+set sidescrolloff=8
 " vim-airline (statusbar)
 set ttimeoutlen=10
 set noshowmode
