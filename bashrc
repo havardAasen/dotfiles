@@ -115,8 +115,8 @@ fi
 # custom addons
 PATH=$PATH:~/.local/bin
 
-DEBEMAIL="haavard_aasen@yahoo.no"
-DEBFULLNAME="Håvard Flaget Aasen"
+DEBEMAIL="havard.f.aasen@pfft.no"
+DEBFULLNAME="Håvard F. Aasen"
 export DEBEMAIL DEBFULLNAME
 
 # quilt
