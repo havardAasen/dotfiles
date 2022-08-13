@@ -133,3 +133,8 @@ unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
+
+# dotnet
+DOTNET_ROOT=/opt/dotnet
+PATH=$PATH:/opt/dotnet
+DOTNET_CLI_TELEMETRY_OPTOUT=true
