@@ -135,6 +135,6 @@ export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
 # dotnet
-DOTNET_ROOT=/opt/dotnet
-PATH=$PATH:/opt/dotnet
-DOTNET_CLI_TELEMETRY_OPTOUT=true
+export DOTNET_ROOT=/opt/dotnet
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
+PATH=$PATH:/opt/dotnet:/opt/dotnet/tools
