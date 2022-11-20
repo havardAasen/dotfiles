@@ -9,7 +9,6 @@ map <C-right> <ESC>:bn<CR>
 call plug#begin()
 
 Plug 'Valloric/YouCompleteMe'
-"Plug 'Latex-Suite-aka-Vim-Latex'
 Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
@@ -19,12 +18,8 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " LaTeX
-"let g:Tex_DefaultTargetFormat = 'pdf'
-"let g:Tex_ViewRule_pdf = 'atril'
-
 "let g:vimtex_view_method='atril'
 let g:vimtex_quickfix_mode=0
-let g:tex_flavor= 'latex'
 let g:vimtex_compiler_latexmk = {
     \ 'options' : [
     \   '-pdf',
