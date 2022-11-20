@@ -18,7 +18,6 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " LaTeX
-"let g:vimtex_view_method='atril'
 let g:vimtex_quickfix_mode=0
 let g:vimtex_compiler_latexmk = {
     \ 'options' : [
