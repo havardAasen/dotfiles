@@ -6,19 +6,17 @@ map <C-left> <ESC>:bp<CR>
 map <C-right> <ESC>:bn<CR>
 
 " Plugins
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-"Plugin 'Latex-Suite-aka-Vim-Latex'
-Plugin 'lervag/vimtex'
-Plugin 'vim-airline/vim-airline'
-Plugin 'tpope/vim-fugitive'
+Plug 'Valloric/YouCompleteMe'
+"Plug 'Latex-Suite-aka-Vim-Latex'
+Plug 'lervag/vimtex'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
 
-"Plugin 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 
-call vundle#end()
+call plug#end()
 
 " LaTeX
 "let g:Tex_DefaultTargetFormat = 'pdf'
