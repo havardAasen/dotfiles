@@ -13,7 +13,6 @@ readonly BACKUP_DIR="${SOURCE_DIR}/dotfiles_old" # dotfiles backup directory.
 declare -ar FILES=("bashrc"
                    "vimrc"
                    "lintianrc"
-                   "dput.cf"
                    "gbp.conf"
                    "sbuildrc") # Array of files to symlink in homedir.
 
