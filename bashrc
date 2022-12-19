@@ -138,3 +138,6 @@ fi
 export DOTNET_ROOT=/opt/dotnet
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 PATH=$PATH:/opt/dotnet:/opt/dotnet/tools
+
+# Added by Toolbox App
+PATH="$PATH:/home/haava/.local/share/JetBrains/Toolbox/scripts"
