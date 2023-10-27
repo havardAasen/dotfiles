@@ -8,7 +8,6 @@ map <C-right> <ESC>:bn<CR>
 " Plugins
 call plug#begin()
 
-Plug 'Valloric/YouCompleteMe'
 Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
@@ -30,7 +29,8 @@ let g:vimtex_compiler_latexmk = {
     \ ],
     \}
 
-" YouCompleteMe
+" YouCompleteMe - installed with apt.
+packadd youcompleteme
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_semantic_triggers =  {
   \   'c,cpp,objc': [ 're!\w{3}', '_' ],
