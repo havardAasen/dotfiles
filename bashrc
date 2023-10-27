@@ -134,10 +134,5 @@ if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
-# dotnet
-export DOTNET_ROOT=/opt/dotnet
-export DOTNET_CLI_TELEMETRY_OPTOUT=true
-PATH=$PATH:/opt/dotnet:/opt/dotnet/tools
-
 # Added by Toolbox App
 PATH="$PATH:/home/haava/.local/share/JetBrains/Toolbox/scripts"
